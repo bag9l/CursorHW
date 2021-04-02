@@ -3,7 +3,6 @@ package com.company;
 import com.company.Part1.Shape;
 import com.company.Part1.Shapes.*;
 import com.company.Part2.*;
-import com.company.Part2.Interfaces.ExpiredProducts;
 
 import java.util.Date;
 import java.util.List;
@@ -81,14 +80,6 @@ public class Main {
         Customer customer = new Customer("Kolya", 25, 10);
         PurchaseManager purchaseManager = new PurchaseManager();
 
-        ExpiredProducts expiredProducts = (products) -> {
-            List<Product> expiredList = null;
-            for (Product product : productList) {
-                if (product.isExpired()) {
-
-                }
-            }
-        };
 
         for (Product product : productList) {
             try {
