@@ -1,6 +1,6 @@
-package com.company.Part2;
+package com.company.part2;
 
-import com.company.Part2.Interfaces.Expirable;
+import com.company.part2.interfaces.Expirable;
 
 import java.util.Date;
 

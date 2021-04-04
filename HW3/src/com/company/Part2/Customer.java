@@ -1,4 +1,4 @@
-package com.company.Part2;
+package com.company.part2;
 
 public class Customer {
     private String name;

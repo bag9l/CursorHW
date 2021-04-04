@@ -1,8 +1,8 @@
 package com.company;
 
-import com.company.Part1.Shape;
-import com.company.Part1.Shapes.*;
-import com.company.Part2.*;
+import com.company.part1.Shape;
+import com.company.part1.shapes.*;
+import com.company.part2.*;
 
 import java.util.Date;
 import java.util.List;

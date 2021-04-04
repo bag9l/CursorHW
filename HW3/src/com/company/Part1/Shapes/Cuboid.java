@@ -1,6 +1,6 @@
-package com.company.Part1.Shapes;
+package com.company.part1.shapes;
 
-import com.company.Part1.SpaceShape;
+import com.company.part1.SpaceShape;
 
 public class Cuboid extends SpaceShape {
     private int width;

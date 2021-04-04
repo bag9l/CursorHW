@@ -1,6 +1,6 @@
-package com.company.Part1.Shapes;
+package com.company.part1.shapes;
 
-import com.company.Part1.PlaneShape;
+import com.company.part1.PlaneShape;
 
 public class Rectangle extends PlaneShape {
     private int width;

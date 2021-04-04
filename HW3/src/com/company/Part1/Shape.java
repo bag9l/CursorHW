@@ -1,4 +1,4 @@
-package com.company.Part1;
+package com.company.part1;
 
 public class Shape {
     protected int arraySize;

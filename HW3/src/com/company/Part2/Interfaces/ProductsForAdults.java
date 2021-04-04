@@ -1,6 +1,6 @@
-package com.company.Part2.Interfaces;
+package com.company.part2.interfaces;
 
-import com.company.Part2.Product;
+import com.company.part2.Product;
 
 import java.util.List;
 

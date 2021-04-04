@@ -1,4 +1,4 @@
-package com.company.Part2.Interfaces;
+package com.company.part2.interfaces;
 
 import java.util.Date;
 

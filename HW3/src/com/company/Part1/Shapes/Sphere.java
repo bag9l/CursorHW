@@ -1,6 +1,6 @@
-package com.company.Part1.Shapes;
+package com.company.part1.shapes;
 
-import com.company.Part1.SpaceShape;
+import com.company.part1.SpaceShape;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.pow;

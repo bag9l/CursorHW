@@ -1,7 +1,7 @@
-package com.company.Part1;
+package com.company.part1;
 
-import com.company.Part1.Interfaces.AreaMeasurable;
-import com.company.Part1.Interfaces.VolumeMeasurable;
+import com.company.part1.interfaces.AreaMeasurable;
+import com.company.part1.interfaces.VolumeMeasurable;
 
 public abstract class SpaceShape extends Shape implements AreaMeasurable, VolumeMeasurable {
 
