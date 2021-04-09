@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 public class Task1 {
 
@@ -27,16 +26,15 @@ public class Task1 {
             counter = 0;
             for (int j = 0; j < allLetters.length(); j++) {
                 if (allLetters.charAt(i) == allLetters.charAt(j)) {
-                    counter++;
+                        counter++;
                 }
                 chars.put(allLetters.charAt(i), counter);
             }
         }
 
-        for (Map.Entry entry : chars.entrySet()) {
-            System.out.println("Char " + entry.getKey() + " - "
-                    + entry.getValue());
-        }
+        chars.forEach((key, value) -> System.out.println("Char " + key + " - "
+                + value));
+
         System.out.println("Number of letter: " + numOfLetters);
         System.out.println("Number of numbers: " + numOfNumbers);
         System.out.println("Number of punctuation marks: " + numOfSigns);
