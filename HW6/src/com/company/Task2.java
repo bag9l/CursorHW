@@ -18,10 +18,10 @@ public class Task2 {
         while (scanner.hasNext()) {
             String word = scanner.next().replaceAll("[^а-яёА-ЯЁ]", "");
             if (words.containsKey(word)) {
-                    int valueInt = words.get(word) + 1;
-                    words.put(word, valueInt);
+                int valueInt = words.get(word) + 1;
+                words.put(word, valueInt);
             } else {
-                    words.put(word, 1);
+                words.put(word, 1);
             }
         }
         System.out.println("Shortest word in the text: " + shortestWord(words) +
@@ -38,10 +38,10 @@ public class Task2 {
             if (shortestWord.length() >= entryKey.length() && entryKey.length() >= 1) {
                 if (shortestWord.length() == entryKey.length()) {
                     if (shortestWord.compareTo(entryKey) >= 0) {
-                            shortestWord = entryKey;
+                        shortestWord = entryKey;
                     }
                 } else {
-                        shortestWord = entryKey;
+                    shortestWord = entryKey;
                 }
             }
         }
@@ -55,10 +55,10 @@ public class Task2 {
             if (longestWord.length() <= entryKey.length()) {
                 if (longestWord.length() == entryKey.length()) {
                     if (longestWord.compareTo(entryKey) <= 0) {
-                            longestWord = entryKey;
+                        longestWord = entryKey;
                     }
                 } else {
-                        longestWord = entryKey;
+                    longestWord = entryKey;
                 }
             }
         }

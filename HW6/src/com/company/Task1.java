@@ -26,7 +26,7 @@ public class Task1 {
             counter = 0;
             for (int j = 0; j < allLetters.length(); j++) {
                 if (allLetters.charAt(i) == allLetters.charAt(j)) {
-                        counter++;
+                    counter++;
                 }
                 chars.put(allLetters.charAt(i), counter);
             }
