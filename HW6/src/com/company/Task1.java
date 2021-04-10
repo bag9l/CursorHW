@@ -8,19 +8,13 @@ public class Task1 {
     public static void main(String[] args) {
         String str = "Hi, I'm n@nobot3000";
 
-        String removeSigns = str.replaceAll("\\p{Punct}", "");
-        int numOfSigns = str.length() - removeSigns.length();
-
-        String removeNumbers = removeSigns.replaceAll("[0-9]", "");
-        int numOfNumbers = removeSigns.length() - removeNumbers.length();
-
-        String removeSpaces = removeNumbers.replaceAll(" ", "");
-        int numOfSpaces = removeNumbers.length() - removeSpaces.length();
-
-        int numOfLetters = removeSpaces.length();
+        System.out.println("Number of letter: " + numOfLetters(str));
+        System.out.println("Number of punctuation marks: " + numOfSigns(str));
+        System.out.println("Number of numbers: " + numOfNumbers(str));
+        System.out.println("Number of spaces: " + numOfSpaces(str));
 
         HashMap<Character, Integer> chars = new HashMap<>();
-        String allLetters = removeSpaces.toLowerCase(Locale.ROOT);
+        String allLetters = getLetters(str).toLowerCase(Locale.ROOT);
         int counter;
         for (int i = 0; i < allLetters.length(); i++) {
             counter = 0;
@@ -35,9 +29,29 @@ public class Task1 {
         chars.forEach((key, value) -> System.out.println("Char " + key + " - "
                 + value));
 
-        System.out.println("Number of letter: " + numOfLetters);
-        System.out.println("Number of numbers: " + numOfNumbers);
-        System.out.println("Number of punctuation marks: " + numOfSigns);
-        System.out.println("Number of spaces: " + numOfSpaces);
+    }
+
+    public static int numOfSigns(String str) {
+        String signs = str.replaceAll("[^\\p{Punct}]", "");
+        return signs.length();
+    }
+
+    public static int numOfNumbers(String str) {
+        String numbers = str.replaceAll("[^\\d]", "");
+        return numbers.length();
+    }
+
+    public static int numOfSpaces(String str) {
+        String spaces = str.replaceAll("[^ ]", "");
+        return spaces.length();
+    }
+
+    public static int numOfLetters(String str) {
+        String letters = str.replaceAll("[^a-zA-Zа-яёА-ЯЁ]", "");
+        return letters.length();
+    }
+
+    public static String getLetters(String str) {
+        return str.replaceAll("[^a-zA-Zа-яёА-ЯЁ]", "");
     }
 }
