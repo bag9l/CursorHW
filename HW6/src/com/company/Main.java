@@ -11,7 +11,7 @@ public class Main {
         // First task
         System.out.println("First task:");
         String str = "Hi, I'm n@nobot3000";
-        ForFirstTask forFirstTask = new ForFirstTask(str);
+        OwnStringAnalyzer forFirstTask = new OwnStringAnalyzer(str);
         System.out.println(forFirstTask.toString());
 
         // Second task
@@ -20,7 +20,7 @@ public class Main {
         File file = new File(path);
         Scanner scanner = new Scanner(file);
 
-        ForSecondTask forSecondTask = new ForSecondTask(scanner);
+        FileReader forSecondTask = new FileReader(scanner);
         System.out.println(forSecondTask.toString());
 
         scanner.close();
