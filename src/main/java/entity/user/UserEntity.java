@@ -1,12 +1,14 @@
-package main.java.Entity.User;
+package main.java.entity.user;
+
+import java.util.Objects;
 
 public class UserEntity {
     private long id;
-    private String name;
     private String userName;
     private String password;
     private UserRoles userRoles;
     private boolean active;
+    private String name;
 
     public UserEntity(long id, String name, String userName, String password, UserRoles userRoles, boolean active) {
         this.id = id;
@@ -16,6 +18,7 @@ public class UserEntity {
         this.userRoles = userRoles;
         this.active = active;
     }
+
 
     public long getId() {
         return id;
@@ -75,5 +78,18 @@ public class UserEntity {
                 ", userRoles=" + userRoles +
                 ", active=" + active +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserEntity that = (UserEntity) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

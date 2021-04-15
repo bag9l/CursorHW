@@ -1,4 +1,4 @@
-package main.java.Entity.User;
+package main.java.entity.user;
 
 public enum UserRoles {
     USER, REGULAR
