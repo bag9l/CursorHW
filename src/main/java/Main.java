@@ -1,25 +1,25 @@
 package main.java;
 
-import main.java.dao.impl.UserDao;
-import main.java.entity.user.UserEntity;
+import main.java.dao.impl.UserDaoImpl;
+import main.java.model.UserModel;
 import main.java.view.impl.LoginMenu;
 
-import static main.java.entity.user.UserRoles.USER;
+import static main.java.model.UserRoles.USER;
 
 public class Main {
     public static void main(String[] args) {
         // ============= User test
-        UserEntity testUser1 = new UserEntity(1, "Oleksandr", "sasha", "123", USER, true);
-        UserEntity testUser2 = new UserEntity(2, "Max", "Max", "123", USER, true);
+        UserModel testUser1 = new UserModel("Sasha", "123", USER, true, "Oleksandr");
+        UserModel testUser2 = new UserModel("Max", "123", USER, true, "Maksym");
 
-        UserDao userDao = new UserDao();
-        userDao.saveUser(testUser1);
-        userDao.saveUser(testUser2);
-        System.out.println(userDao.getUserById(1));
-        System.out.println(userDao.getUserById(2));
-        userDao.removeUser(1);
-        System.out.println(userDao.getUserById(1));
-        System.out.println(userDao.getUserById(2));
+        UserDaoImpl userDaoImpl = new UserDaoImpl();
+        userDaoImpl.saveUser(testUser1);
+        userDaoImpl.saveUser(testUser2);
+        System.out.println(userDaoImpl.getUserById(1));
+        System.out.println(userDaoImpl.getUserById(2));
+        userDaoImpl.removeUser(1);
+        System.out.println(userDaoImpl.getUserById(1));
+        System.out.println(userDaoImpl.getUserById(2));
         // ============= end User test
 
 

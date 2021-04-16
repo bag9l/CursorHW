@@ -1,11 +1,11 @@
 package main.java.dao;
 
-public interface UserDao<UserEntity> {
-    void saveUser(UserEntity userEntity);
+public interface UserDao<UserModel> {
+    void saveUser(UserModel userModel);
 
-    UserEntity getUserById(long id) throws Exception;
+    UserModel getUserById(long id) throws Exception;
 
     void removeUser(long id);
 
-    UserEntity getUserByUserName(String userName);
+    UserModel getUserByUsername(String userName);
 }

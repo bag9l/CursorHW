@@ -1,44 +1,45 @@
 package main.java.dao.impl;
 
-import main.java.entity.user.UserEntity;
+import main.java.dao.DB.UserDB;
+import main.java.dao.UserDao;
 import main.java.model.UserModel;
 
 import java.util.stream.Collectors;
 
-public class UserDao implements main.java.dao.UserDao<UserEntity> {
-    UserModel userModel = new UserModel();
+public class UserDaoImpl implements UserDao<UserModel> {
+    UserDB userDB = new UserDB();
 
     @Override
-    public void saveUser(UserEntity userEntity) {
+    public void saveUser(UserModel userModel) {
         try {
-            userModel.getUserDB().add(userEntity);
+            userDB.getUserDB().add(userModel);
         } catch (Exception e) {
             System.out.println("User already exist in database.");
         }
     }
 
     @Override
-    public UserEntity getUserById(long id) {
-        UserEntity userEntityRez = null;
-        if (userModel.getUserDB().stream().anyMatch(userEntity -> userEntity.getId() == id)) {
+    public UserModel getUserById(long id) {
+        UserModel userModelRez = null;
+        if (userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserID() == id)) {
             try {
-                userEntityRez = userModel.getUserDB().stream()
-                        .filter(userEntity -> userEntity.getId() == id)
+                userModelRez = userDB.getUserDB().stream()
+                        .filter(userModel -> userModel.getUserID() == id)
                         .collect(Collectors.toList()).get(0);
             } catch (Exception e) {
                 System.out.printf("User with id = %s not found.%n", id);
             }
         }
-        return userEntityRez;
+        return userModelRez;
     }
 
 
     @Override
     public void removeUser(long id) {
-        if (userModel.getUserDB().stream().anyMatch(userEntity -> userEntity.getId() == id)) {
+        if (userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserID() == id)) {
             boolean userIsRemoved = false;
             try {
-                userIsRemoved = userModel.getUserDB().remove(getUserById(id));
+                userIsRemoved = userDB.getUserDB().remove(getUserById(id));
             } catch (Exception e) {
                 System.out.printf("Can't remove user with id = %s%n", id);
             }
@@ -51,7 +52,7 @@ public class UserDao implements main.java.dao.UserDao<UserEntity> {
     }
 
     @Override
-    public UserEntity getUserByUserName(String userName) {
+    public UserModel getUserByUsername(String userName) {
         return null;
     }
 }
