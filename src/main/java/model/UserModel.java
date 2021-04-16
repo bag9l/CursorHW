@@ -1,20 +1,20 @@
 package main.java.model;
 
-
+import main.java.DB.UserDB;
 import main.java.entity.user.UserEntity;
 
 import java.util.HashSet;
 
 
 public class UserModel {
-    private HashSet<UserEntity> userDB = new HashSet<>();
+    UserDB userDB = new UserDB();
 
 
     public UserModel() {
     }
 
     public HashSet<UserEntity> getUserDB() {
-        return userDB;
+        return userDB.getAccessToUserDB();
     }
 
 }
