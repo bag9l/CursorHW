@@ -11,20 +11,7 @@ public class SafeDivision {
         System.out.print("B = ");
         int b = setValue(in.next());
 
-        float result;
-        while (true) {
-            try {
-                if (b == 0) {
-                    throw new ArithmeticException("Division by zero!");
-                }
-                result = (float) a / b;
-                break;
-            } catch (ArithmeticException e) {
-                System.out.print("B = 0\nReenter B: ");
-                b = in.nextInt();
-            }
-        }
-        System.out.println("A/B = " + result);
+        System.out.println("A/B = " + division(a, b));
     }
 
     static int setValue(String str) {
@@ -38,5 +25,24 @@ public class SafeDivision {
             num = setValue(scanner.next());
         }
         return num;
+    }
+
+    static float division(int a, int b) {
+        Scanner scanner = new Scanner(System.in);
+        float result;
+        while (true) {
+            try {
+                if (b == 0) {
+                    throw new ArithmeticException("Division by zero!");
+                }
+                result = (float) a / b;
+                break;
+            } catch (ArithmeticException e) {
+                System.out.print("B = 0\nReenter B: ");
+                b = scanner.nextInt();
+            }
+        }
+        scanner.close();
+        return result;
     }
 }
