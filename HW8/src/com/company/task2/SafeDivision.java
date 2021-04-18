@@ -12,6 +12,7 @@ public class SafeDivision {
         int b = setValue(in.next());
 
         System.out.println("A/B = " + division(a, b));
+        in.close();
     }
 
     static int setValue(String str) {
