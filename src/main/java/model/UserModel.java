@@ -73,13 +73,11 @@ public class UserModel {
     // User password not showed
     @Override
     public String toString() {
-        return "UserEntity{" +
-                "id=" + userID +
-                ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userRoles=" + userRoles +
-                ", active=" + active +
-                '}';
+        return "UserID = " + userID +
+                ", name = '" + name + '\'' +
+                ", userName = '" + userName + '\'' +
+                ", userRoles = " + userRoles +
+                ", active = " + active;
     }
 
     @Override

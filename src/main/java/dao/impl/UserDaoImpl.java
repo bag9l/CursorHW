@@ -59,12 +59,17 @@ public class UserDaoImpl implements UserDao<UserModel> {
 
     @Override
     public UserModel getUserByUsername(String userName) {
-        return null;
+        UserModel userModelRez = null;
+        if (userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserName().contains(userName))) {
+            userModelRez = userDB.getUserDB().stream().filter(userModel -> userModel.getUserName().equals(userName))
+                    .collect(Collectors.toList()).get(0);
+        } else {
+            System.out.printf("User with username = %s not found.", userName);
+        }
+        return userModelRez;
     }
-
 
     private boolean isUserInDatabase(long userID) {
         return userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserID() == userID);
     }
-
 }

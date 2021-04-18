@@ -20,6 +20,9 @@ public class Main {
         userDaoImpl.removeUser(1);
         System.out.println(userDaoImpl.getUserById(1));
         System.out.println(userDaoImpl.getUserById(2));
+        System.out.println(userDaoImpl.getUserByUsername("Sasha"));
+        System.out.println(userDaoImpl.getUserByUsername("Max"));
+
         // ============= end User test
 
 
