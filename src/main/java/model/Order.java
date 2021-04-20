@@ -1,35 +1,38 @@
 package main.java.model;
 
-import main.java.service.OrderService;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Order {
-        private static int counter = 1;
+    private static int counter = 1;
 
-        private int id;
-        private Date date;
-        private long customerId;
-        private List<Product> listOfProduct = new ArrayList<>();
-        private double sum;
-        private DeliveryStatusOrder deliveryStatusOrder;
+    private int id;
+    private Date date;
+    private long customerId;
+    private List<Product> listOfProduct = new ArrayList<>();
+    private double sum;
+    private DeliveryStatusOrder deliveryStatusOrder;
 
-        public Order(long customerId, Product product) {
-            this.id = counter++;
-            this.date = new Date();
-            this.customerId = customerId;
-            this.listOfProduct.add(product);
-            this.sum = product.getPrice();
-            this.deliveryStatusOrder = DeliveryStatusOrder.UNCONFIRMED;
-        }
+    public Order(long customerId, Product product) {
+        this.id = counter++;
+        this.date = new Date();
+        this.customerId = customerId;
+        this.listOfProduct.add(product);
+        this.sum = product.getPrice();
+        this.deliveryStatusOrder = DeliveryStatusOrder.UNCONFIRMED;
+    }
 
     public int getId() {
-        return id; }
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public long getCustomerId() {
+        return customerId;
     }
 
     public List<Product> getListOfProduct() {
@@ -49,17 +52,16 @@ public class Order {
     }
 
 
-    public void addProductOfOrder(Product product){
+    public void addProductOfOrder(Product product) {
         this.listOfProduct.add(product);
         this.sum = sum + product.getPrice();
     }
 
-    public void removeProductOfOrder(Product product){
+    public void removeProductOfOrder(Product product) {
         this.listOfProduct.remove(product);
     }
 
     public void orderConfirmed() {
-
         this.deliveryStatusOrder = DeliveryStatusOrder.CONFIRMED;
     }
 
@@ -68,7 +70,6 @@ public class Order {
     }
 
     public void orderCancelledUser() {
-
         this.deliveryStatusOrder = DeliveryStatusOrder.CANCELLED_USER;
     }
 
@@ -80,8 +81,6 @@ public class Order {
                 "\nSum order: " + sum +
                 "\nDelivery status order: " + deliveryStatusOrder;
     }
-
-
 
 
     @Override
