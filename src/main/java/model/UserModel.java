@@ -9,15 +9,14 @@ public class UserModel {
     private long userID;
     private String userName;
     private String password;
-    private UserRoles userRoles;
+    private UserRoles userRoles = UserRoles.USER;
     private boolean active;
     private String name;
 
-    public UserModel(String userName, String password, UserRoles userRoles, boolean active, String name) {
+    public UserModel(String userName, String password, boolean active, String name) {
         this.userID = count.incrementAndGet();
         this.userName = userName;
         this.password = password;
-        this.userRoles = userRoles;
         this.active = active;
         this.name = name;
     }
