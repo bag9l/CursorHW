@@ -21,4 +21,14 @@ public class AdminModel extends UserModel{
         return user;
     }
 
+    public Product createProduct (String name, double price, int amountInStock, ProductCategory category){
+        return new Product(name,price,amountInStock,category);
+    }
+
+    public void showInfoAboutProduct(Product product){
+        System.out.println(product.toString());
+    }
+
+
+
 }
