@@ -73,7 +73,7 @@ public class Order {
     }
 
 
-    public String showListProductOfOrder() {
+    public String showOrder() {
         return "\nOrder " + "#" + id +
                 "\nDate: " + date +
                 "\nList of product: " + listOfProduct +
