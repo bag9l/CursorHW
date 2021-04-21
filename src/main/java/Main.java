@@ -1,14 +1,15 @@
 package main.java;
 
 import main.java.dao.impl.UserDaoImpl;
-import main.java.model.UserModel;
+import main.java.model.person.Person;
+import main.java.model.person.UserModel;
 import main.java.view.impl.LoginMenu;
 
 public class Main {
     public static void main(String[] args) {
         // ============= User test
-        UserModel testUser1 = new UserModel("Sasha", "123", true, "Oleksandr");
-        UserModel testUser2 = new UserModel("Max", "123", true, "Maksym");
+        Person testUser1 = new UserModel("Sasha", "123", true, "Oleksandr");
+        Person testUser2 = new UserModel("Max", "123", true, "Maksym");
 
         UserDaoImpl userDaoImpl = new UserDaoImpl();
         userDaoImpl.saveUser(testUser1);

@@ -2,7 +2,7 @@ package main.java.dao;
 
 import main.java.model.DeliveryStatusOrder;
 import main.java.model.Order;
-import main.java.model.UserModel;
+import main.java.model.person.Person;
 
 public interface OrderDao {
 
@@ -10,7 +10,7 @@ public interface OrderDao {
 
     void showListAllOrder();
 
-    void showListOrderUser(UserModel user);
+    void showListOrderUser(Person user);
 
     void changeDeliveryStatusOrderAdmin(long idOrder, DeliveryStatusOrder deliveryStatusOrder);
 

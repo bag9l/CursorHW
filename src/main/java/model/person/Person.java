@@ -1,24 +1,26 @@
-package main.java.model;
+package main.java.model.person;
+
+import main.java.model.UserRoles;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
-public class UserModel {
+public class Person {
     private static final AtomicInteger count = new AtomicInteger(0);
     private long userID;
     private String userName;
     private String password;
-    private UserRoles userRoles = UserRoles.USER;
+    private UserRoles userRoles;
     private boolean active;
     private String name;
 
-    public UserModel(String userName, String password, boolean active, String name) {
+    public Person(String userName, String password, UserRoles userRoles, boolean active, String name) {
         this.userID = count.incrementAndGet();
         this.userName = userName;
         this.password = password;
         this.active = active;
         this.name = name;
+        this.userRoles = userRoles;
     }
 
     public long getUserID() {
@@ -75,7 +77,7 @@ public class UserModel {
         return "UserID = " + userID +
                 ", name = '" + name + '\'' +
                 ", userName = '" + userName + '\'' +
-                ", userRoles = " + userRoles +
+                ", userRoles = " + getUserRoles() +
                 ", active = " + active;
     }
 
@@ -83,7 +85,7 @@ public class UserModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserModel that = (UserModel) o;
+        Person that = (Person) o;
         return userID == that.userID;
     }
 

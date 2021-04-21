@@ -2,15 +2,15 @@ package main.java.dao.impl;
 
 import main.java.dao.DB.UserDB;
 import main.java.dao.UserDao;
-import main.java.model.UserModel;
+import main.java.model.person.Person;
 
 import java.util.stream.Collectors;
 
-public class UserDaoImpl implements UserDao<UserModel> {
+public class UserDaoImpl implements UserDao<Person> {
     UserDB userDB = new UserDB();
 
     @Override
-    public void saveUser(UserModel userModel) {
+    public void saveUser(Person userModel) {
         if (isUserInDatabase(userModel.getUserID())) {
             System.out.println("User already exists in the database.");
         } else {
@@ -23,8 +23,8 @@ public class UserDaoImpl implements UserDao<UserModel> {
     }
 
     @Override
-    public UserModel getUserById(long userID) {
-        UserModel userModelRez = null;
+    public Person getUserById(long userID) {
+        Person userModelRez = null;
         if (isUserInDatabase(userID)) {
             try {
                 userModelRez = userDB.getUserDB().stream()
@@ -58,8 +58,8 @@ public class UserDaoImpl implements UserDao<UserModel> {
     }
 
     @Override
-    public UserModel getUserByUsername(String userName) {
-        UserModel userModelRez = null;
+    public Person getUserByUsername(String userName) {
+        Person userModelRez = null;
         if (userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserName().contains(userName))) {
             userModelRez = userDB.getUserDB().stream().filter(userModel -> userModel.getUserName().equals(userName))
                     .collect(Collectors.toList()).get(0);

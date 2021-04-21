@@ -3,7 +3,7 @@ package main.java.dao.DB;
 import main.java.dao.OrderDao;
 import main.java.model.DeliveryStatusOrder;
 import main.java.model.Order;
-import main.java.model.UserModel;
+import main.java.model.person.Person;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;
@@ -31,7 +31,7 @@ public class OrderDB implements OrderDao {
         System.out.println(ordersDB.toString());
     }
 
-    public void showListOrderUser(UserModel user) {
+    public void showListOrderUser(Person user) {
         ordersDB.stream()
                 .filter(value -> value.getCustomerId() == user.getUserID())
                 .forEach(System.out::print);
