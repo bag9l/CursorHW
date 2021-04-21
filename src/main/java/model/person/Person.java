@@ -5,7 +5,7 @@ import main.java.model.UserRoles;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Person {
+public abstract class Person {
     private static final AtomicInteger count = new AtomicInteger(0);
     private long userID;
     private String userName;
