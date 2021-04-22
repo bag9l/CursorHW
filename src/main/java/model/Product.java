@@ -1,15 +1,17 @@
 package main.java.model;
 
+import main.java.dao.impl.ProductDaoImpl;
+
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Product {
     private static final AtomicInteger count = new AtomicInteger(0);
-    int id;
-    String name;
-    double price;
-    int amountInStock;
-    ProductCategory category;
+    private int id;
+    private String name;
+    private double price;
+    private int amountInStock;
+    private ProductCategory category;
 
     public Product(String name, double price, int amountInStock, ProductCategory category) {
         this.id = count.incrementAndGet();
@@ -48,7 +50,11 @@ public class Product {
     }
 
     public void setAmountInStock(int amountInStock) {
-        this.amountInStock = amountInStock;
+        if (amountInStock > 0) {
+            this.amountInStock = amountInStock;
+        } else {
+            throw new RuntimeException("Amount of product cann't be null");
+        }
     }
 
     public ProductCategory getCategory() {
@@ -61,7 +67,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "ProductEntity{" +
+        return "Product {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +

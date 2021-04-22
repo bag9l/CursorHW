@@ -7,5 +7,6 @@ public enum ProductCategory {
     CHEMISTRY,
     OTHER,
     BUILDING_MATERIALS,
-    MACHINRRY
+    MACHINRRY,
+    GADGETS
 }

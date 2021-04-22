@@ -1,6 +1,6 @@
 package main.java;
 
-import main.java.dao.DB.UserDB;
+import main.java.dao.impl.ProductDaoImpl;
 import main.java.dao.impl.UserDaoImpl;
 import main.java.model.Order;
 import main.java.model.Product;
@@ -19,22 +19,30 @@ public class Main {
         UserDaoImpl userDaoImpl = new UserDaoImpl();
         userDaoImpl.saveUser(testUser1);
         userDaoImpl.saveUser(testUser2);
-//        System.out.println(userDaoImpl.getUserById(1));
-//        System.out.println(userDaoImpl.getUserById(2));
-//        userDaoImpl.removeUser(1);
-//        System.out.println(userDaoImpl.getUserById(1));
-//        System.out.println(userDaoImpl.getUserById(2));
-//        System.out.println(userDaoImpl.getUserByUsername("Sasha"));
-//        System.out.println(userDaoImpl.getUserByUsername("Max"));
-
+        System.out.println(userDaoImpl.getUserById(1));
+        System.out.println(userDaoImpl.getUserById(2));
+        userDaoImpl.removeUser(1);
+        System.out.println(userDaoImpl.getUserById(1));
+        System.out.println(userDaoImpl.getUserById(2));
+        System.out.println(userDaoImpl.getUserByUsername("Sasha"));
+        System.out.println(userDaoImpl.getUserByUsername("Max"));
         // ============= end User test
-//        Product product1 = new Product("cheese",200, 1, ProductCategory.FOOD );
-//        Product product2 = new Product("cheese",200, 1, ProductCategory.FOOD );
-//        Order order1 = new Order(1,product1);
-//        Order order2 = new Order(1,product2);
+
+//        Product product1 = new Product("cheese", 200, 1, ProductCategory.FOOD);
+//        Product product2 = new Product("cheese", 200, 1, ProductCategory.FOOD);
+//        ProductDaoImpl productDao = new ProductDaoImpl();
+//        productDao.addProductDB(product1);
+//        productDao.addProductDB(product2);
+//        productDao.orderProductsByNameAndQuantity(product1.getName(), 1);
+//        productDao.showListAllProductsInDB();
+//        // ====== save products in DB
+//
+//        Order order1 = new Order(1, product1);
+//        Order order2 = new Order(1, product2);
 //        order1.addProductOfOrder(product2);
 //        System.out.println(order1.getListOfProduct().toString());
 //        System.out.println(order1.showOrder());
+//        // ====== make order
 
         AdminModel admin = new AdminModel("test", "123", true, "test");
         userDaoImpl.saveUser(admin);
@@ -45,9 +53,5 @@ public class Main {
         System.out.println(userDaoImpl.getUserById(4));
 
         new LoginMenu().show();
-
-
     }
-
-
 }
