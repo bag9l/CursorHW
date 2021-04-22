@@ -5,12 +5,12 @@ import main.java.model.person.Person;
 import java.util.HashSet;
 
 public class UserDB {
-    private HashSet<Person> userDB = new HashSet<>();
+    private static HashSet<Person> userDB = new HashSet<>();
 
     public UserDB() {
     }
 
-    public HashSet<Person> getUserDB() {
+    public static HashSet<Person> getUserDB() {
         return userDB;
     }
 }

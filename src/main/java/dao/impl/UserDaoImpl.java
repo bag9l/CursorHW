@@ -7,7 +7,6 @@ import main.java.model.person.Person;
 import java.util.stream.Collectors;
 
 public class UserDaoImpl implements UserDao<Person> {
-    UserDB userDB = new UserDB();
 
     @Override
     public void saveUser(Person userModel) {
@@ -15,7 +14,7 @@ public class UserDaoImpl implements UserDao<Person> {
             System.out.println("User already exists in the database.");
         } else {
             try {
-                userDB.getUserDB().add(userModel);
+                UserDB.getUserDB().add(userModel);
             } catch (Exception e) {
                 System.out.println("Problem with adding a User to the database.");
             }
@@ -27,7 +26,7 @@ public class UserDaoImpl implements UserDao<Person> {
         Person userModelRez = null;
         if (isUserInDatabase(userID)) {
             try {
-                userModelRez = userDB.getUserDB().stream()
+                userModelRez = UserDB.getUserDB().stream()
                         .filter(userModel -> userModel.getUserID() == userID)
                         .collect(Collectors.toList()).get(0);
             } catch (Exception e) {
@@ -45,7 +44,7 @@ public class UserDaoImpl implements UserDao<Person> {
         if (isUserInDatabase(userID)) {
             boolean userIsRemoved = false;
             try {
-                userIsRemoved = userDB.getUserDB().remove(getUserById(userID));
+                userIsRemoved = UserDB.getUserDB().remove(getUserById(userID));
             } catch (Exception e) {
                 System.out.printf("Problem during removing a user with id = %s from the database", userID);
             }
@@ -60,8 +59,8 @@ public class UserDaoImpl implements UserDao<Person> {
     @Override
     public Person getUserByUsername(String userName) {
         Person userModelRez = null;
-        if (userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserName().contains(userName))) {
-            userModelRez = userDB.getUserDB().stream().filter(userModel -> userModel.getUserName().equals(userName))
+        if (UserDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserName().contains(userName))) {
+            userModelRez = UserDB.getUserDB().stream().filter(userModel -> userModel.getUserName().equals(userName))
                     .collect(Collectors.toList()).get(0);
         } else {
             System.out.printf("User with username = %s not found.", userName);
@@ -70,6 +69,6 @@ public class UserDaoImpl implements UserDao<Person> {
     }
 
     private boolean isUserInDatabase(long userID) {
-        return userDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserID() == userID);
+        return UserDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserID() == userID);
     }
 }

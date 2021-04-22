@@ -1,17 +1,18 @@
 package main.java.model.person;
 
+import main.java.dao.impl.AdminDAOImpl;
 import main.java.model.*;
 
 public class AdminModel extends Person {
     private UserRoles userRoles;
+    AdminDAOImpl adminDAO = new AdminDAOImpl();
 
     public AdminModel(String userName, String password, boolean active, String name) {
         super(userName, password, UserRoles.ADMIN, active, name);
     }
 
-
-    public AdminModel makeAdmin(Person user) {
-        return new AdminModel(user.getUserName(), user.getPassword(), user.isActive(), user.getName());
+    public void makeAdmin(Person user) {
+        adminDAO.updateUserToAdmin(user);
     }
 
     public Order changeOrderStatus(Order order, DeliveryStatusOrder statusOrder) {
