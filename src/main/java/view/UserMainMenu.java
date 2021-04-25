@@ -1,5 +1,6 @@
-package main.java.view.impl;
+package main.java.view;
 
+import main.java.view.LoginMenu;
 import main.java.view.Menu;
 
 public class UserMainMenu implements Menu {

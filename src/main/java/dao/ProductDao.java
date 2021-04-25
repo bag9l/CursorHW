@@ -3,18 +3,20 @@ package main.java.dao;
 import main.java.model.Product;
 import main.java.model.ProductCategory;
 
+import java.util.List;
 import java.util.Set;
 
 public interface ProductDao {
-    void addProductDB(Product product);
 
-    void showListAllProductsInDB();
+    void addProduct(Product product);
 
-    Product getProductsByName(String name);
+    void updateProduct(Product product);
 
-    Product orderProductsByNameAndQuantity(String name, int quantity);
+    Product getProductById(String productId);
 
-    Set<Product> getProductsByCategory(ProductCategory category);
+    List<Product> getProductsByName(String name);
 
-    void removeProduct(long productId);
+    List<Product> getProductsByCategory(ProductCategory category);
+
+    void removeProduct(String productId);
 }

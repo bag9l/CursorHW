@@ -3,95 +3,79 @@ package main.java.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Order {
-    private static int counter = 1;
 
-    private int id;
-    private Date date;
-    private long customerId;
-    private List<Product> listOfProduct = new ArrayList<>();
+    private final String orderId;
+    private final Date dateCreated;
+    private final String customerId;
+    private List<Product> listOfProducts = new ArrayList<>();
     private double sum;
-    private DeliveryStatusOrder deliveryStatusOrder;
+    private OrderStatus orderStatus;
 
-    public Order(long customerId, Product product) {
-        this.id = counter++;
-        this.date = new Date();
+    public Order(String customerId, Product product) {
+        this.orderId = UUID.randomUUID().toString();
+        this.dateCreated = new Date();
         this.customerId = customerId;
-        this.listOfProduct.add(product);
+        this.listOfProducts.add(product);
         this.sum = product.getPrice();
-        this.deliveryStatusOrder = DeliveryStatusOrder.UNCONFIRMED;
+        this.orderStatus = OrderStatus.UNCONFIRMED;
     }
 
-    public int getId() {
-        return id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public List<Product> getListOfProduct() {
-        return listOfProduct;
+    public List<Product> getListOfProducts() {
+        return listOfProducts;
     }
 
-    public void setListOfProduct(List<Product> listOfProduct) {
-        this.listOfProduct = listOfProduct;
+    public void setListOfProducts(List<Product> listOfProducts) {
+        this.listOfProducts = listOfProducts;
     }
 
-    public DeliveryStatusOrder getDeliveryStatusOrder() {
-        return deliveryStatusOrder;
+    public OrderStatus getDeliveryStatusOrder() {
+        return orderStatus;
     }
 
-    public void setDeliveryStatusOrder(DeliveryStatusOrder deliveryStatusOrder) {
-        this.deliveryStatusOrder = deliveryStatusOrder;
+    public void setDeliveryStatusOrder(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
-
 
     public void addProductOfOrder(Product product) {
-        this.listOfProduct.add(product);
+        this.listOfProducts.add(product);
         this.sum = sum + product.getPrice();
     }
 
     public void removeProductOfOrder(Product product) {
-        this.listOfProduct.remove(product);
+        this.listOfProducts.remove(product);
     }
 
     public void orderConfirmed() {
-        this.deliveryStatusOrder = DeliveryStatusOrder.CONFIRMED;
+        this.orderStatus = OrderStatus.CONFIRMED;
     }
 
     public void orderCancelled() {
-        this.deliveryStatusOrder = DeliveryStatusOrder.CANCELLED;
+        this.orderStatus = OrderStatus.CANCELLED;
     }
 
     public void orderCancelledUser() {
-        this.deliveryStatusOrder = DeliveryStatusOrder.CANCELLED_USER;
+        this.orderStatus = OrderStatus.CANCELLED_USER;
     }
-
-
-    public String showOrder() {
-        return "\nOrder " + "#" + id +
-                "\nDate: " + date +
-                "\nList of product: " + listOfProduct +
-                "\nSum order: " + sum +
-                "\nDelivery status order: " + deliveryStatusOrder;
-    }
-
 
     @Override
     public String toString() {
         return "\nOrder{" +
-                "id=" + id +
-                ", date=" + date +
+                ", date=" + dateCreated +
                 ", customerId=" + customerId +
-                ", listOfProduct=" + listOfProduct +
+                ", listOfProduct=" + listOfProducts +
                 ", sum=" + sum +
-                ", deliveryStatusOrder=" + deliveryStatusOrder +
+                ", deliveryStatusOrder=" + orderStatus +
                 '}';
     }
 }

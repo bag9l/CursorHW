@@ -1,19 +1,20 @@
 package main.java.dao;
 
-import main.java.model.DeliveryStatusOrder;
 import main.java.model.Order;
-import main.java.model.person.Person;
+
+import java.util.List;
 
 public interface OrderDao {
 
-    void addOrderDB(Order order);
+    void createOrder(Order order);
 
-    void showListAllOrder();
+    Order getOrderById(String orderId);
 
-    void showListOrderUser(Person user);
+    void updateOrder(Order order);
 
-    void changeDeliveryStatusOrderAdmin(long idOrder, DeliveryStatusOrder deliveryStatusOrder);
+    List<Order> getAllOrders();
+
+    List<Order> getUserOrders(String userId);
 
     void cancelDeliveryStatusOrderUser(long idOrder);
-
 }

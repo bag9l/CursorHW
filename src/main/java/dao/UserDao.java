@@ -1,11 +1,14 @@
 package main.java.dao;
 
-public interface UserDao<UserModel> {
-    void saveUser(UserModel userModel);
+import main.java.model.User;
 
-    UserModel getUserById(long userID) throws Exception;
+public interface UserDao {
 
-    void removeUser(long userID);
+    void saveUser(User user);
 
-    UserModel getUserByUsername(String userName);
+    User getUserById(String userId);
+
+    void removeUser(String userId);
+
+    User getUserByUsername(String username);
 }

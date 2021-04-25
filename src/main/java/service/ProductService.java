@@ -1,5 +1,5 @@
 package main.java.service;
 
 
-public interface ProductService {
+public class ProductService {
 }

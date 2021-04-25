@@ -1,6 +1,7 @@
 package main.java.view;
 
 public interface Menu {
+
     void show();
 
     void exit();

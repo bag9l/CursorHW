@@ -1,8 +1,8 @@
 package main.java.model;
 
-public enum DeliveryStatusOrder {
+public enum OrderStatus {
     CONFIRMED,
     UNCONFIRMED,
     CANCELLED,
-    CANCELLED_USER
+    CANCELLED_USER;
 }

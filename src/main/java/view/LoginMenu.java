@@ -1,5 +1,6 @@
-package main.java.view.impl;
+package main.java.view;
 
+import main.java.exceptions.WrongCredentialsException;
 import main.java.service.UserService;
 import main.java.view.Menu;
 
@@ -8,7 +9,7 @@ import java.util.Scanner;
 public class LoginMenu implements Menu {
 
     private UserService userService;
-    private String[] items = {"1.Login", "2.Register"};
+    private final String[] items = {"1. Login", "2. Register"};
     private Scanner scanner;
 
     @Override
@@ -42,19 +43,26 @@ public class LoginMenu implements Menu {
     }
 
     private void loginSubMenu(Scanner scanner) {
-
-        System.out.println("input login:");
-        String login = scanner.nextLine();
+        System.out.println("input username:");
+        String username = scanner.nextLine();
 
         System.out.println("input password:");
         String password = scanner.nextLine();
 
-        if (userService.login(login, password)) {
+        try {
+            userService.login(username, password);
 
-        } else {
-            System.out.println("Wrong username/pasword");
-            show();
+        } catch (WrongCredentialsException e) {
+            // System.oty.println("Username or password are incorrect. Please try again...");
+            // show login view
+        } catch (Exception e2) {
+
+        } catch (Exception e3) {
+
+        } finally {
+
         }
+        // show main menu
     }
 
     private void registerSubMenu(Scanner scanner) {
