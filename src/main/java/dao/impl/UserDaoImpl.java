@@ -4,6 +4,7 @@ import main.java.dao.DB.UserDB;
 import main.java.dao.UserDao;
 import main.java.model.person.Person;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UserDaoImpl implements UserDao<Person> {
@@ -23,19 +24,23 @@ public class UserDaoImpl implements UserDao<Person> {
 
     @Override
     public Person getUserById(long userID) {
-        Person userModelRez = null;
+        Person person =  null;
+        Optional<Person> optionalPerson = Optional.empty();
         if (isUserInDatabase(userID)) {
             try {
-                userModelRez = UserDB.getUserDB().stream()
+                optionalPerson = UserDB.getUserDB().stream()
                         .filter(userModel -> userModel.getUserID() == userID)
-                        .collect(Collectors.toList()).get(0);
+                        .findFirst();
             } catch (Exception e) {
                 System.out.printf("Problem with getting a User with id = %s from the database", userID);
             }
+        if (optionalPerson.isPresent()) {
+            person = optionalPerson.get();
+        }
         } else {
             System.out.printf("User with id = %s is not found.", userID);
         }
-        return userModelRez;
+        return person;
     }
 
 
@@ -66,6 +71,10 @@ public class UserDaoImpl implements UserDao<Person> {
             System.out.printf("User with username = %s not found.", userName);
         }
         return userModelRez;
+    }
+
+    public boolean isUserByUsername(String userName){
+        return UserDB.getUserDB().stream().anyMatch(userModel -> userModel.getUserName().equals(userName));
     }
 
     private boolean isUserInDatabase(long userID) {
