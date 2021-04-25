@@ -1,7 +1,5 @@
 package main.java.model;
 
-import main.java.dao.impl.ProductDaoImpl;
-
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -53,7 +51,7 @@ public class Product {
         if (amountInStock > 0) {
             this.amountInStock = amountInStock;
         } else {
-            throw new RuntimeException("Amount of product cann't be null");
+            System.out.println("Amount of product can not be null");
         }
     }
 

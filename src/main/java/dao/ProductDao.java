@@ -12,7 +12,7 @@ public interface ProductDao {
 
     Product getProductsByName(String name);
 
-    Product orderProductsByNameAndQuantity(String name, int quantity);
+    Product buyProductsByNameAndQuantity(String name, int quantity);
 
     Set<Product> getProductsByCategory(ProductCategory category);
 

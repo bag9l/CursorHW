@@ -48,12 +48,12 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product orderProductsByNameAndQuantity(String name, int quantity) {
+    public Product buyProductsByNameAndQuantity(String name, int quantity) {
         var product = getProductsByName(name);
         if (quantity > 0) {
             product.setAmountInStock(product.getAmountInStock() - quantity);
         } else {
-            throw new RuntimeException("Quantity couldn't be less then 1");
+            System.out.println("Quantity of products is available" + product.getAmountInStock());
         }
         return product;
     }
