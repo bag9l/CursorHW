@@ -1,0 +1,4 @@
+[0.028s][info][gc] Using G1
+[0.360s][info][gc] GC(0) Pause Young (Concurrent Start) (G1 Humongous Allocation) 4M->2M(126M) 5.953ms
+[0.360s][info][gc] GC(1) Concurrent Cycle
+[0.367s][info][gc] GC(2) Pause Young (Normal) (G1 Humongous Allocation) 2M->2M(126M) 4.460ms
